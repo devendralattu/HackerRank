@@ -44,7 +44,8 @@ public class TwoPluses {
 						} else {
 							if (c[i][l] == 'G' && c[i][r] == 'G' && c[t][j] == 'G' && c[b][j] == 'G') {
 								max[i - 1][j - 1] = max[i - 1][j - 1] + 4;
-								max = updateMaxArrayFields(max, i - 1, j - 1, N - 2, M - 2);
+								// max = updateMaxArrayFields(max, i - 1, j - 1,
+								// N - 2, M - 2);
 								l--;
 								r++;
 								t--;
@@ -104,8 +105,36 @@ public class TwoPluses {
 	}
 
 }
-/*
- * Sample Input 6 6 BGBBGB GGGGGG BGBBGB GGGGGG BGBBGB BGBBGB
+/*https://www.hackerrank.com/contests/worldcodesprint/challenges/two-pluses
+ * Sample Input 
+ * 6 6 
+ * BGBBGB 
+ * GGGGGG 
+ * BGBBGB 
+ * GGGGGG 
+ * BGBBGB 
+ * BGBBGB
  * 
- * Output 5115 1111 5115 1111 25
+ * Output 
+ * 5115 
+ * 1111 
+ * 5115 
+ * 1111 
+ * 25
+ * 
+ * After new changes
+ * 6 6 
+ * BGBBGB 
+ * GGGGGG 
+ * BGBBGB 
+ * GGGGGG 
+ * BGBBGB 
+ * BGBBGB 
+ * 
+ * 5555 
+ * 5115 
+ * 5555 
+ * 5115 
+ * 25
+ * 
  */
