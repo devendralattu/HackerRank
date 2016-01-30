@@ -44,6 +44,7 @@ public class TwoPluses {
 						} else {
 							if (c[i][l] == 'G' && c[i][r] == 'G' && c[t][j] == 'G' && c[b][j] == 'G') {
 								max[i - 1][j - 1] = max[i - 1][j - 1] + 4;
+								max = updateMaxArrayFields(max, i - 1, j - 1, N - 2, M - 2);
 								l--;
 								r++;
 								t--;
@@ -85,21 +86,26 @@ public class TwoPluses {
 
 	}
 
+	private static int[][] updateMaxArrayFields(int[][] max, int i, int j, int n, int m) {
+		int maxCurrVal = max[i][j];
+		if (i - 1 >= 0) {
+			max[i - 1][j] = maxCurrVal;
+		}
+		if (i + 1 < n) {
+			max[i + 1][j] = maxCurrVal;
+		}
+		if (j - 1 >= 0) {
+			max[i][j - 1] = maxCurrVal;
+		}
+		if (j + 1 < m) {
+			max[i][j + 1] = maxCurrVal;
+		}
+		return max;
+	}
+
 }
 /*
-Sample Input
-6 6
-BGBBGB
-GGGGGG
-BGBBGB
-GGGGGG
-BGBBGB
-BGBBGB
-
-Output
-5115
-1111
-5115
-1111
-25
-*/
+ * Sample Input 6 6 BGBBGB GGGGGG BGBBGB GGGGGG BGBBGB BGBBGB
+ * 
+ * Output 5115 1111 5115 1111 25
+ */
