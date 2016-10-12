@@ -1,11 +1,11 @@
 Sample run
 
-Input:
-3
----
--m-
---p
+<b>Input:</b><br>
+3<br>
+---<br>
+-m-<br>
+--p<br>
 
-Output:
-RIGHT
+<b>Output:</b><br>
+RIGHT<br>
 DOWN
