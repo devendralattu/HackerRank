@@ -1,0 +1,44 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class SansaAndXOR {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int testCase = in.nextInt();
+        
+        ArrayList<Integer> al = new ArrayList<Integer>();
+        for(int t = 0; t < testCase; t++){
+            int n = in.nextInt();
+            in.nextLine();
+            String s = in.nextLine();
+            String sArr[] = s.split(" ");
+            
+            int arr[] = new int[n];
+            for(int a = 0; a < n; a++){
+                arr[a] = Integer.parseInt(sArr[a]);
+            }
+            
+            int sum = 0;
+            
+            if(n % 2 == 1){
+                for(int i = 0; i < n; i = i + 2){
+                    sum = sum ^ arr[i];
+                }
+            }
+            al.add(sum);
+        }
+        
+        for(int a : al){
+            System.out.println(a);
+        }
+    }
+}
+
+/**
+Sample:
+123 = 1 xor 2 xor 3 xor (1 xor 2) xor (2 xor 3) xor (1 xor 2 xor 3) = ?
+**/
