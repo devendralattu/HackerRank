@@ -4,7 +4,7 @@ import java.text.*;
 import java.math.*;
 import java.util.regex.*;
 
-public class Solution {
+public class LonelyInteger {
      private static int lonelyInteger(int[] a) {
         int num = a[0];
         for(int i = 1; i < a.length; i++){
