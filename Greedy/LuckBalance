@@ -1,0 +1,48 @@
+/** https://www.hackerrank.com/challenges/luck-balance **/
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class LuckBalance {
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int N = in.nextInt();
+        int K = in.nextInt();
+        
+        int luck = 0;
+        
+        List<Integer> list = new ArrayList<Integer>();
+        for(int i = 0; i < N; i++){
+            int L = in.nextInt();
+            int T = in.nextInt();
+            
+            if(T == 0){
+                //add luck from non important matches.
+                luck = luck + L;
+            }
+            else{
+                //store all important matches.
+                list.add(L);
+            }
+        }
+        
+        //we want to maximize our luck. Therefore lose heavy luck value matches to gain more luck.
+        Collections.sort(list);
+        
+        int i = 0;
+        for(i = list.size() - 1; i >= 0 && K > 0; i--){
+            K--; // lost one from max loose allowed count.
+            luck = luck + list.get(i); // add to luck
+        }
+        
+        while(i >= 0){
+            luck = luck - list.get(i--); // winning match reduces our luck
+        }
+        
+        System.out.println(luck);
+    }
+}
